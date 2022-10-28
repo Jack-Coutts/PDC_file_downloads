@@ -1,7 +1,10 @@
 ## Download raw data files from Proteomic Data Commons
+
 ---
 
 Python script for batch downloading data from the Proteomic Data Commons using export manifest csv file containing file download urls. Instructions for how to create the export manifest file can be found [here](https://pdc.cancer.gov/pdc/faq/Download_Data). This script is adapted from the one provided by the Proteomic Data Commons.
+
+---
 
 ### Usage Instructions:
 
