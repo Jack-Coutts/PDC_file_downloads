@@ -18,13 +18,13 @@ def download_organize(file_name, delimiter, output_directory):
 
     # Initiate logger
     logging.basicConfig(filename=file_name.replace('.csv', '.log').replace('.tsv', '.log'), encoding='utf-8', level=logging.INFO)
-
+    # Open the export manifest csv
     with open(file_name) as f:
 
         reader = csv.DictReader(f, delimiter=delimiter)  # read rows into a dictionary format
 
-        file_num = len(pd.read_csv(file_name))
-        count = 0
+        file_num = len(pd.read_csv(file_name))  # Total number of files
+        count = 0  # Initiate a counter to keep track of how many files left to download
 
         print(f'Downloads starting .... {datetime.now()}')
         logging.info(f'Downloads starting.... {datetime.now()}')
@@ -44,11 +44,11 @@ def download_organize(file_name, delimiter, output_directory):
             else:
                 folder_name = os.path.join(pdc_study_id, study_version, data_category, folder, file_type)
             # Download file
-            url = requests.get(url_link)
-            folder_path = os.path.join(output_directory, folder_name)
-            if os.path.isfile(os.path.join(folder_path, fname)):
+            url = requests.get(url_link)  # Download the file from a url
+            folder_path = os.path.join(output_directory, folder_name)  # Output file directory
+            if os.path.isfile(os.path.join(folder_path, fname)):  # Do not add to directory if already there
                 logging.info(f'{fname} already exists. Skipping download ... File {count} of {file_num} - {datetime.now()}')
-            else:
+            else:  # Add to specified directory
                 logging.info(f'Downloading {fname}. File {count} of {file_num} - {datetime.now()}')
                 open(fname, 'wb').write(url.content)
                 # Move file to destination
