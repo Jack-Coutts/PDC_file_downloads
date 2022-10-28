@@ -15,4 +15,11 @@ E.g. python3 downloadPDCData.py PDC_file_manifest_10282022_103445.csv /Users/cou
 
 While running the script will produce a .log file in the same directory as the downloadPDCData.py file which shows which files have been downloaded and when. Both the .log file and the terminal will informthe user when the downloads start and finish.
 
+Directory structure for downloaded files is as follows:
 
+PDC Study ID/
+    PDC Study Version/
+        Data category/
+            Run Metadata ID/
+                File Type/
+                    File Name
