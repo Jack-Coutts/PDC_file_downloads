@@ -1,9 +1,3 @@
-# This is a sample Python script to batch download PDC data files in to your local computer
-# Save this script as downloadPDCData.py in your local directory
-# Provide downloaded PDC File manifest as a command line parameter
-# Ex:  python3 downloadPDCData.py <PDC File manifest>
-# Users may improvise using awk, sed and rewrite in perl, python, etc.
-
 import sys
 import csv
 import os
